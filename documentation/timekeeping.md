@@ -1,7 +1,5 @@
 # Timekeeping
 
-| Task | Time spent    |   Date    |
-|-----:|---------------|
-|     1|               |
-|     2|               |
-|     3|               |
+| Date | Time spent | Task worked on |
+|------|------------|----------------|
+|28.03.| 1 hour     | Initial requirements definition|
