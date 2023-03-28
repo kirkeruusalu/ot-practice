@@ -3,8 +3,8 @@
 ## Project
 
 ### Documentation
-The requirements definition can be found [here] (https://github.com/kirkeruusalu/ot-practice/blob/master/documentation/requirements_specification.md)
-The timekeeping document can be found [here] (https://github.com/kirkeruusalu/ot-practice/blob/master/documentation/timekeeping.md
+The requirements definition can be found [here](https://github.com/kirkeruusalu/ot-practice/blob/master/documentation/requirements_specification.md)
+The timekeeping document can be found [here](https://github.com/kirkeruusalu/ot-practice/blob/master/documentation/timekeeping.md
 
 [gitlog.txt](https://github.com/kirkeruusalu/ot-practice/blob/master/laskarit/week1/gitlog.txt)
 [commandline.txt](https://github.com/kirkeruusalu/ot-practice/blob/master/laskarit/week1/commandline.txt)
