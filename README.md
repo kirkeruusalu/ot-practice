@@ -5,7 +5,7 @@
 ### Documentation
 The requirements definition can be found [here](https://github.com/kirkeruusalu/ot-practice/blob/master/documentation/requirements_specification.md)
 The timekeeping document can be found [here](https://github.com/kirkeruusalu/ot-practice/blob/master/documentation/timekeeping.md)
-The changelog file can be found [here] (https://github.com/kirkeruusalu/ot-practice/blob/master/documentation/changelog.md)
+The changelog file can be found [here](https://github.com/kirkeruusalu/ot-practice/blob/master/documentation/changelog.md)
 
 ### Running project code
 Installing dependencies:
