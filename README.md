@@ -42,6 +42,6 @@ poetry run invoke coverage-report
 The tasks for week 2 can be found in the laskarit/[week2](https://github.com/kirkeruusalu/ot-practice/tree/master/laskarit/week2) folder.
 
 #### Week 3
-Tasks for week 3 can be found in laskarit/[week3] (https://github.com/kirkeruusalu/ot-practice/tree/master/laskarit/week3) folder.
+Tasks for week 3 can be found in laskarit/[week3](https://github.com/kirkeruusalu/ot-practice/tree/master/laskarit/week3) folder.
 
 
