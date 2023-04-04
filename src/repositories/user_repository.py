@@ -1,10 +1,60 @@
 from entities.user import User
 from database_connection import get_database_connection
 
+#def get_user_by_row(row):
+ #   return User(row["username"]) if row else None
+
 class UserRepository:
-    def __init__(self, connection):
-        self._connection = connection
+    """Class responsible for database operations on users
+    """
+
+    def __init__(self):
+        self._connection = get_database_connection()
+
+    def create_user(self, user):
+
+        cursor = self._connection.cursor()
+
+        cursor.execute(
+            "insert into users (username) values (?)",
+            (user.username,)  
+        )
+
+        self._connection.commit()
+
+
+    def find_all_users(self):
+        
+        cursor = self._connection.cursor()
+
+        cursor.execute("select * from users")
+
+        rows = cursor.fetchall()
+
+        return rows
+    
+    def find_by_username(self, username):
+        cursor = self._connection.cursor()
+
+        cursor.execute( 
+            "select username from users where username = ?",
+            (username,)
+        )
+
+        row = cursor.fetchone()
+
+        return row
+    
+    def delete_all(self):
+        
+        cursor = self._connection.cursor()
+
+        cursor.execute("delete from users")
+
+        self._connection.commit()
+
 
     
-user_repository = UserRepository(get_database_connection())
+user_repository = UserRepository()
+
 
