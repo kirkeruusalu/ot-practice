@@ -1,5 +1,6 @@
 from database_connection import get_database_connection
 
+
 def create_users_table(connection):
     cursor = connection.cursor()
 
@@ -11,6 +12,7 @@ def create_users_table(connection):
 
     connection.commit()
 
+
 def drop_users_table(connection):
     cursor = connection.cursor()
 
@@ -19,6 +21,7 @@ def drop_users_table(connection):
     """)
 
     connection.commit()
+
 
 def create_equation_table(connection):
     cursor = connection.cursor()
@@ -31,6 +34,7 @@ def create_equation_table(connection):
         """)
     connection.commit()
 
+
 def initialize_database():
 
     connection = get_database_connection()
@@ -38,6 +42,7 @@ def initialize_database():
     drop_users_table(connection)
     create_users_table(connection)
     create_equation_table(connection)
+
 
 if __name__ == "__main__":
 
