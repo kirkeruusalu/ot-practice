@@ -6,3 +6,5 @@
 |02.04 | 3 hours    | Familiarization with sqlite|
 |03.04 | 2 hours    | Setup of database|
 |04.04 | 2 hours    | Initial functions/tests|
+|12.04 | 3 hours    | Familiarization with sympy|
+|15.04 | 2 hours    | Furthering the application|
