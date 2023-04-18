@@ -1,14 +1,17 @@
 from entities.user import User
 from repositories.user_repository import UserRepository
 from initialize_database import initialize_database
-from services.calculator_service import CalculatorService
+from services.user_service import UserService
+from services.find_derivative import Derivative_Service
 
 repository = UserRepository()
-calculator = CalculatorService()
+user = UserService()
+derivative = Derivative_Service()
+initialize_database()
 
 username = str(input("username:"))
 
-calculator.create_user(username)
+user.create_user(username)
 
 print("new user created")
 
@@ -17,3 +20,8 @@ print("here are all the current users: ", repository.find_all_users())
 if str(input("do you want to find by username? (y/n)")) == "y":
     name = str(input("enter username to look for: "))
     print(repository.find_by_username(name))
+
+while input("again: ") == "y":
+    hello = input("write equation: ")
+    print(derivative.find_simple(hello))
+    
