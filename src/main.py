@@ -21,7 +21,11 @@ if str(input("do you want to find by username? (y/n)")) == "y":
     name = str(input("enter username to look for: "))
     print(repository.find_by_username(name))
 
-while input("again: ") == "y":
-    hello = input("write equation: ")
+
+hello = input("write equation: ")
+print(derivative.find_simple(hello))
+
+while input("do you want to stop? (y/n)") == "n":
+    hello = input("write a very simple equation with variable x: ")
     print(derivative.find_simple(hello))
     
