@@ -15,17 +15,20 @@ user.create_user(username)
 
 print("new user created")
 
-print("here are all the current users: ", repository.find_all_users())
+#print("here are all the current users: ", repository.find_all_users())
 
-if str(input("do you want to find by username? (y/n)")) == "y":
-    name = str(input("enter username to look for: "))
-    print(repository.find_by_username(name))
+#if str(input("do you want to find by username? (y/n)")) == "y":
+ #   name = str(input("enter username to look for: "))
+  #  print(repository.find_by_username(name))
 
 while True:
     hello = input("write a very simple equation with variable x. use python syntax: ")
     print(derivative.find_simple(hello))
 
-    if input("do you want to find another one? (y/n)") == "n":
-        print("okay, you will now exit the application")
-        
-
+    result = input("do you want to find another one? (y/n)")
+    if result != "y":
+        if result == "n" or result == "N":
+            print("okay, you will now exit the application")
+            break    
+        else:
+             print("i dont know what you mean by that, so i will continue asking you for an equation")
