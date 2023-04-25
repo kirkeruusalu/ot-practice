@@ -10,8 +10,9 @@ from repositories.user_repository import user_repository
 class UserService:
     """This class is responsible for application logic"""
 
-    def __init__(self):
+    def __init__(self, user_repository):
         self._user_repository = user_repository
+        self._user = None
 
     def create_user(self, username):
         is_there_user = self._user_repository.find_by_username(username)
@@ -29,10 +30,18 @@ class UserService:
             raise ValueError("this username does not exist")
         
     def log_in(self, username):
-        pass
+        is_there_user = self._user_repository.find_by_username(username)
+        if not is_there_user:
+            raise NameError("this username does not exist")
+        
+        self._user = is_there_user
+        return self._user
+        
 
     def log_out(self, username):
-        pass
+        self._user = None
+
+    
 
     
 
