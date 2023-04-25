@@ -18,4 +18,5 @@
 ## Week5
 
 * Added functionalities to UserService (e.g. log in and log out)
-* 
+* Added functionality to derivatives, dealing with errors
+* Making it more user-friendly
