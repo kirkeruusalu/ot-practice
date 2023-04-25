@@ -14,3 +14,8 @@
 * Equation tables in database set up
 * Methods added to EquationRepository
 * Tests added 
+
+## Week5
+
+* Added functionalities to UserService (e.g. log in and log out)
+* 
