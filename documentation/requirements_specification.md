@@ -13,16 +13,16 @@ An extension could be an administrative role, where the root user can delete and
 
 ### Basic functionalities
 - Before logging in:
-  - The user can create a username that is constrained by some factors (e.g. length)
-  - If there is already the same username in the system, the user will be notified of this and have to choose a different one.
-  - Potentially also a password will be asked of the user as an extension. This is initially not in the plan, as the infromation displayed by the applicatoin is not sensitive information, and only for personal academic development.
-- The user logs in.
-  - The user is asked if they wish to review previous equations, if they wish to find a derivative or a new equation, or if they wish to find an integral of an equation.
-  - If they wish to review previous equations:
+  - [x] The user can create a username that is constrained by some factors (e.g. length)
+  - [x] If there is already the same username in the system, the user will be notified of this and have to choose a different one.
+  - [ ] Potentially also a password will be asked of the user as an extension. This is initially not in the plan, as the infromation displayed by the applicatoin is not sensitive information, and only for personal academic development.
+- [x] The user logs in.
+  - [ ] The user is asked if they wish to review previous equations, if they wish to find a derivative or a new equation, or if they wish to find an integral of an equation.
+  - [ ] If they wish to review previous equations:
      - The user can view a list of their previous saved equations
      - The user can removed any saved equations (for example, if they feel like they have understood the content).
-  - If they wish to find a derivative:
-     - The user is redirected to a window where they can write in an equation (if they equation is mathematically invalid, they will be told so). Then, the derivative of the equation will be presented to them.
+  - [x] If they wish to find a derivative:
+     - The user is redirected to a window where they can write in an equation (if they equation is mathematically invalid, they will be told so).  Then the derivative of the equation will be presented to them.
   - If they wish to find an integral:
      - The user is also redirected to a window where they can write in an equation, then an integral of this equation will be presented to them.
 
