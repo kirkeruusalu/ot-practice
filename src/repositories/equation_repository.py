@@ -1,7 +1,6 @@
 from pathlib import Path
 from entities . equation import Equation
 from entities . user import User
-from repositories.user_repository import UserRepository
 from database_connection import get_database_connection
 
 class EquationRepository:
