@@ -7,6 +7,9 @@ from entities.equation import Equation
 from repositories.equation_repository import EquationRepository
 from repositories.user_repository import UserRepository
 
+class FormattingError(Exception):
+    pass
+
 class Derivative_Service:
 
     """Class responsible for calculating the derivative"""
@@ -16,13 +19,22 @@ class Derivative_Service:
     
 
     def find_simple(self, equation):
-        equation = sympify(equation)
-        return diff(equation)
+        try:
+            equation = sympify(equation)
+            print("this is the derivative of your equation: ")
+            return diff(equation)
+        except:
+            return("not python format, try again")
+    
+
+
 
     def find_product(self, equation):
         equation =  sympify(equation)
+        pass
 
     def find_quotient(self, equation):
         equation = sympify(equation)
+        pass
 
     

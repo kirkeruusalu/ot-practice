@@ -41,6 +41,7 @@ class UserRepository:
         cursor.execute("delete from users (username) values (?)",
                        (user.username,))
         self._connection.commit()
+        
 user_repository = UserRepository()
 
 

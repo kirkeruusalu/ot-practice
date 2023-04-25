@@ -42,7 +42,7 @@ class EquationRepository:
         cursor = self._connection.cursor()
 
         cursor.execute("""
-            delete from expenses where username = user.username and equation = equation.equation
+            delete from equations where username = user.username and equation = equation.equation
             """)
         
         self._connection.commit()

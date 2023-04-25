@@ -10,7 +10,7 @@ from repositories.user_repository import user_repository
 class UserService:
     """This class is responsible for application logic"""
 
-    def __init__(self, user_repository):
+    def __init__(self, user_repository=user_repository):
         self._user_repository = user_repository
         self._user = None
 
