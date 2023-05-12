@@ -25,9 +25,6 @@ class Derivative_Service:
             return diff(equation)
         except:
             return("not python format, try again")
-    
-
-
 
     def find_product(self, equation):
         equation =  sympify(equation)
@@ -36,5 +33,3 @@ class Derivative_Service:
     def find_quotient(self, equation):
         equation = sympify(equation)
         pass
-
-    

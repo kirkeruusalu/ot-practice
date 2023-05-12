@@ -1,6 +1,9 @@
 from entities.user import User
 from database_connection import get_database_connection
 
+def get_user_by_row(row):
+    return User(row["username"]) if row else None
+
 class UserRepository:
     """Class responsible for database operations on users
 
@@ -26,10 +29,10 @@ class UserRepository:
     def find_by_username(self, username):
         cursor = self._connection.cursor()
         cursor.execute( 
-            "select username from users where username = ?",
+            "select * from users where username = ?",
             (username,))
         row = cursor.fetchone()
-        return row
+        return get_user_by_row(row)
     
     def delete_all(self):
         cursor = self._connection.cursor()

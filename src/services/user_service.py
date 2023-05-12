@@ -7,6 +7,7 @@ from entities.equation import Equation
 from repositories.user_repository import user_repository
 
 
+
 class UserService:
     """This class is responsible for application logic"""
 
@@ -18,7 +19,7 @@ class UserService:
         is_there_user = self._user_repository.find_by_username(username)
 
         if is_there_user:
-            raise ValueError("this username exists, choose a new one")
+            raise InvalidError("this username exists, choose a new one")
         
         user = self._user_repository.create_user(User(username))
 
@@ -27,12 +28,12 @@ class UserService:
         if not is_there_user:
             self._user_repository.delete_user(User(username))
         else:
-            raise ValueError("this username does not exist")
+            raise DoesNotExistError("this username does not exist")
         
     def log_in(self, username):
         is_there_user = self._user_repository.find_by_username(username)
         if not is_there_user:
-            raise NameError("this username does not exist")
+            raise DoesNotExistError("this username does not exist")
         
         self._user = is_there_user
         return self._user
@@ -41,8 +42,14 @@ class UserService:
     def log_out(self, username):
         self._user = None
 
-    
+class InvalidError(Exception):
+    pass
 
+class DoesNotExistError(Exception):
+    pass
+
+    
+user_service = UserService()
     
 
 
