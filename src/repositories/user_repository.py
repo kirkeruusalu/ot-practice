@@ -42,8 +42,9 @@ class UserRepository:
     def delete_user(self, username):
         cursor = self._connection.cursor()
 
-        cursor.execute("delete from users (username) values (?)",
-                       (username,))
+        cursor.execute("delete from users where username=:c",
+                       {"c": username})
+                       
         self._connection.commit()
         
 user_repository = UserRepository()

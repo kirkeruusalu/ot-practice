@@ -1,6 +1,7 @@
 from tkinter import Tk
 from ui.login_view import LoginView
-from ui.create_user_view import CreateAccountView
+from ui.create_user_view import CreateUserView
+from ui.derivative_finder_view import DerivativeFinder
 
 
 class UI:
@@ -23,20 +24,26 @@ class UI:
         if self._current:
             self._current.destroy()
 
-    def _handle_create_account(self):
-        self._show_create_account_view()
+    def _handle_create_user(self):
+        self._show_create_user_view()
 
     def _handle_login(self):
         self._show_login()
+
+    def _handle_derivative(self):
+        self._show_find_derivative_view()
     
     def _show_login(self):
         self._hide_current()
-        self._current = LoginView(self._root, self._handle_create_account)
+        self._current = LoginView(self._root, self._handle_create_user, self._handle_derivative)
         
-
-    def _show_create_account_view(self):
+    def _show_create_user_view(self):
         self._hide_current()
-        self._current = CreateAccountView(self._root, self._handle_login)
+        self._current = CreateUserView(self._root, self._handle_login)
+    
+    def _show_find_derivative_view(self):
+        self._hide_current()
+        self._current = DerivativeFinder(self._root, self._handle_login)
         
 
     

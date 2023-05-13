@@ -2,14 +2,15 @@ from services.user_service import DoesNotExistError, user_service
 import tkinter as tk
 from tkinter import ttk, messagebox, constants
 
+
 class LoginView:
     """A class that handles what the UI looks like if the user wishes to log in
     """
 
-    def __init__(self, root, handle_create): #handle_find):
+    def __init__(self, root, handle_create_user, handle_derivative):
         self._root = root
-        self._handle_create = handle_create
-       # self._handle_find = handle_find
+        self._handle_create = handle_create_user
+        self._handle_find = handle_derivative
         self._frame = None
         self._style = None
         self._username = None
@@ -23,7 +24,7 @@ class LoginView:
         self._username_entered = tk.Entry(master=self._frame)
 
         login_button = tk.Button(master=self._frame, text="Login", command=self._handle_login_button)
-        create_account_button= tk.Button(master=self._frame, text="Create new account", command = self._handle_create)
+        create_user_button= tk.Button(master=self._frame, text="Create new user", command = self._handle_create)
 
         header.grid(columnspan=3, sticky=(constants.N), padx=5, pady=5)
         username.grid(padx=5, pady=5)
@@ -31,7 +32,7 @@ class LoginView:
         
         login_button.grid(columnspan=3,)
 
-        create_account_button.grid(columnspan=3)
+        create_user_button.grid(columnspan=3)
 
         self._frame.grid_columnconfigure(1, weight=2, minsize=300)
         self._frame.pack()
@@ -45,7 +46,8 @@ class LoginView:
         if username_value:
             try:
                 user_service.log_in(username_value)
-                self._handle_create
+                self._handle_create()
+                self._handle_find()
             except DoesNotExistError:
                 self._errormessage("Invalid. Try again")
 

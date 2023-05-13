@@ -21,7 +21,7 @@ class UserService:
         if is_there_user:
             raise InvalidError("this username exists, choose a new one")
         
-        user = self._user_repository.create_user(User(username))
+        self._user_repository.create_user(User(username))
 
     def delete_user(self, username):
         is_there_user = self._user_repository.find_by_username(username)
@@ -37,6 +37,9 @@ class UserService:
         
         self._user = is_there_user
         return self._user
+    
+    def find_logged_in_user(self):
+        return self._user
         
 
     def log_out(self, username):
@@ -49,7 +52,7 @@ class DoesNotExistError(Exception):
     pass
 
     
-user_service = UserService()
+user_service = UserService(user_repository)
     
 
 

@@ -46,6 +46,17 @@ class EquationRepository:
         
         self._connection.commit()
 
+    def delete_all(self, user=User, equation=Equation):
+        cursor = self._connection.cursor()
+
+        cursor.execute("""
+            delete from equations
+            """)
+        
+        self._connection.commit()
+
+equation_repository = EquationRepository()
+
     
         
         

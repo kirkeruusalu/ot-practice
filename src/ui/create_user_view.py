@@ -2,7 +2,7 @@ from tkinter import messagebox, constants
 import tkinter as tk
 from services.user_service import user_service, InvalidError, DoesNotExistError
 
-class CreateAccountView:
+class CreateUserView:
     """This class is responsible for what the view is like if the user creates a new account
     
     """
@@ -21,14 +21,13 @@ class CreateAccountView:
         username =tk.Label(master=self._frame, text="What do you want your username to be?")
         self._username_entered = tk.Entry(master=self._frame)
 
-        login_button = tk.Button(master=self._frame, text="Login", command=self._handle_login_button)
+       
         create_account_and_login_button= tk.Button(master=self._frame, text="Create new account and log in", command = self._handle_create_and_log_in_button)
 
         header.grid(columnspan=3, sticky=(constants.N), padx=5, pady=5)
         username.grid(padx=5, pady=5)
-        self._username_entered.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5, pasy=5)
-        
-        login_button.grid(columnspan=3,)
+        self._username_entered.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
+    
 
         create_account_and_login_button.grid(columnspan=3)
 
@@ -42,10 +41,10 @@ class CreateAccountView:
         usernamevalue = self._username_entered.get()
         if usernamevalue:
             try:
-                userservice.create_user(usernamevalue)
-                self._handle_login
+                user_service.create_user(usernamevalue)
+                self._handle_login()
             except InvalidError:
                 self._error_message("This one exists")
     
     def _error_message(self, message):
-           messagebox.showerror("Error,")
+           messagebox.showerror("Error", message)

@@ -33,3 +33,5 @@ class Derivative_Service:
     def find_quotient(self, equation):
         equation = sympify(equation)
         pass
+
+derivative_service = Derivative_Service()
