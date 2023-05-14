@@ -20,3 +20,13 @@
 * Added functionalities to UserService (e.g. log in and log out)
 * Added functionality to derivatives, dealing with errors
 * Making it more user-friendly
+
+## Week6
+
+* Sadly no changes were made this week
+
+## Week7
+
+* Implementation of graphical UI
+* Changes to entire structure, removal of equation object and equation repository
+* More tests added
