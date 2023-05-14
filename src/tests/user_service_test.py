@@ -17,5 +17,14 @@ class TestLoginService(unittest.TestCase):
         self.test_user_service.create_user("kirke")
         is_there = test_repository.find_by_username("kirke")
         self.assertEqual(is_there.username, "kirke")
+    
+    def test_create_user_exists(self):
+        self.test_user_service.create_user("kirke")
+        with  self.assertRaises(Exception) as context:
+            self.test_user_service.create_user("kirke")
+            
+        self.assertTrue("this username exists, choose a new one" in str(context.exception))
+     
+
 
 

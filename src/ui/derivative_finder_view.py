@@ -1,7 +1,9 @@
 from tkinter import messagebox, constants
+from tkinter import ttk
 import tkinter as tk
 from services.user_service import user_service, InvalidError, DoesNotExistError
 from services.find_derivative import derivative_service, FormattingError
+from ui.found_derivative_view import DerivativeView
 
 class DerivativeFinder:
     """This class is responsible for the users view of the equation entered and the derivative that is found
@@ -9,28 +11,27 @@ class DerivativeFinder:
     """
 
     
-    def __init__(self, root, handle_login):
+    def __init__(self, root, handle_login, handle_found_derivative):
         self._root = root
-        self._handle_return_to_login = handle_login
+        #self._handle_calculate_button = None
+        self._handle_found_derivative = handle_found_derivative
         self._frame = None
-
-        self._user = user_service.find_logged_in_user()
+        self._handle_login = handle_login
         self._equation_entered = None
-        self._derivative = None
-        
-
         self._start()
 
     def _start(self):
         self._frame = tk.Frame(master=self._root)
-        header = tk.Label(master=self._frame, text="Here you can type in an equation: ")
-        equation =tk.Label(master=self._frame, text="Equation: ")
-        _equation_entered = tk.Entry(master=self._frame)
+        header = tk.Label(master=self._frame, text="""Here you can type in an equation. Remember to use Python format, e.g. if you want the derivative of 3x, write it as 3*x :)))
+                            YOU ONLY GET ONE cos im a dumb bitch who doesnt know how to add a back button
+                          """)
+       
+        self._equation_entered = tk.Entry(master=self._frame)
 
-        calculate_result_button = tk.Button(master=self._frame, text="Calculate", command=self._handle_calculation)
+        calculate_result_button = tk.Button(master=self._frame, text="Calculate", command=self._handle_calculate_button)
         header.grid(columnspan=3, sticky=(constants.N), padx=5, pady=5)
-        equation.grid(padx=5, pady=5)
-        _equation_entered.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
+      
+        self._equation_entered.grid(row=1, column=1, sticky=(constants.E, constants.W), padx=5, pady=5)
         calculate_result_button.grid(columnspan=3)
 
         self._frame.grid_columnconfigure(1, weight=2, minsize=300)
@@ -39,10 +40,21 @@ class DerivativeFinder:
     def destroy(self):
         self._frame.destroy()
     
-    def _handle_calculation(self):
-        derivative_service.find_simple(self._equation_entered)
+    def _handle_calculate_button(self):
+        equation = self.get_equation_entered()
+        try:                 
+            result = derivative_service.find_simple(equation)
+            derivative_view = DerivativeView(self._root, self._handle_found_derivative, result)
+            self._handle_found_derivative(derivative_view)
+        except FormattingError:
+            self._error_message("Wrong format, try again")
+        
 
-    def _handle_logout(self):
-        user_service.log_out()
-        self._handle_return_to_login()
+    def _error_message(self, message):
+           messagebox.showerror("Error", message)
 
+
+    def get_equation_entered(self):
+        return self._equation_entered.get()
+    
+    

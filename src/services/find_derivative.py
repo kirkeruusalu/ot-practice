@@ -21,10 +21,9 @@ class Derivative_Service:
     def find_simple(self, equation):
         try:
             equation = sympify(equation)
-            print("this is the derivative of your equation: ")
             return diff(equation)
         except:
-            return("not python format, try again")
+            raise FormattingError("incorrect format")
 
     def find_product(self, equation):
         equation =  sympify(equation)
