@@ -12,4 +12,9 @@
 |22.04 | 1 hour     | Fixing bugs|
 |23.04 | 2 hours    | Working on diagrams, architecture|
 |23.04 | 2 hours    | Working with main program|
-|Total | 22 hours   |
+|05.05 | 7 hours    | Developing UI initially|
+|06.05 | 4 hours    | Fixing issues with UI|
+|12.05 | 5 hours    | Making documentation diagrams|
+|13.05 | 3 hours    | Bug fixes|
+|14.05 | 4 hours    | Writing tests|
+|Total | 45 hours   |
