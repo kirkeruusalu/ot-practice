@@ -1,7 +1,7 @@
 # This is my repository
 
 ## Project
-This is a project for calculating derivatives.
+This is a project for calculating derivatives. The user can log into their account and find a number of derivatives of their choosing.
 
 ### Documentation
 The requirements definition can be found [here](https://github.com/kirkeruusalu/ot-practice/blob/master/documentation/requirements_specification.md)
